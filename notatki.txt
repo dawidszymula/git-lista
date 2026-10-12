@@ -1,2 +1,5 @@
+HEAD
 inny tekst
+pierwsza linijka tekstu
+ poprawka
 nowa linijka
