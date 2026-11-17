@@ -26,6 +26,10 @@ public class Konto {
             this.saldo = saldoPoczatkowe;
         }
     }
+    protected void ustawSaldo(double noweSaldo){
+        this.saldo = noweSaldo;
+    }
+
     public static int getLiczbaKont(){ return liczbaKont; }
     public int getNumer(){ return numer; }
     public String getWlasciciel(){ return wlasciciel; }
@@ -51,9 +55,19 @@ public class Konto {
     public boolean maWiecejNiz(Konto inneKonto){
         return this.saldo > inneKonto.saldo;
     }
+
+    public boolean przelew(Konto cel, double kwota){
+        if(this.wyplac(kwota)){
+            cel.saldo += kwota;
+            return true;
+        }
+        return false;
+    }
+
     @Override
     public String toString(){
         return String.format("Konto nr %d [%s] saldo: %.2f | operacji: %d", numer, wlasciciel, saldo, liczbOperacji);
     }
+
 
 }
